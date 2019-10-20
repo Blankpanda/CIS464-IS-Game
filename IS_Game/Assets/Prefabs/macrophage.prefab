@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212573827448036196}
   - component: {fileID: 58457529075054288}
   - component: {fileID: 50614958460889014}
-  - component: {fileID: 114455817106558524}
+  - component: {fileID: 114726717883492354}
   m_Layer: 0
   m_Name: macrophage
   m_TagString: Untagged
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 1.055
---- !u!114 &114455817106558524
+--- !u!114 &114726717883492354
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e87492852e54924694f67ebd1a67c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 6.85
   move: 0
 --- !u!212 &212573827448036196
 SpriteRenderer:
