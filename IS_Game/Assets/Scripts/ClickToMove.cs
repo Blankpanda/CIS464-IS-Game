@@ -2,32 +2,68 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ClickToMove : MonoBehaviour {
+public class ClickToMove : MonoBehaviour
+{
 
-    //movement speed
     public float speed;
-    //whether or not the object is moving
-    public bool move;
-    //where the object will move towards
+    private bool move;
     private Vector3 target;
 
-	// Update is called once per frame
-	void Update ()
+    private void Awake()
     {
-        //when the mouse is clicked
-		if(Input.GetMouseButtonDown(0))
-        {
+        this.move = false; 
+    }
+    // Update is called once per frame
+    void Update()
+    {
 
+        if (Input.GetMouseButtonDown(1)) // Right click, move the unit 
+        {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            target.z = transform.position.z;
-            if(move == false)
+            target.z = this.gameObject.transform.position.z;
+            MoveObject(); 
+        }
+        else if (Input.GetMouseButtonDown(0)) // Left click, determine if its a selection or deselection 
+        { 
+            Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 mousePos2d = new Vector2(mousePos.x, mousePos.y);
+
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2d, Vector2.zero);
+
+            if (hit.collider == null || hit.collider.tag != "PlayerUnit")
             {
-                move = true;
+                SelectionHandler.ClearActiveSelections();
             }
         }
-        if(move == true)
+    }
+
+    void MoveObject()
+    {
+        SelectionHandler handler = (SelectionHandler)this.gameObject.GetComponent("SelectionHandler");
+        //bool isSelected = handler.selected || handler.activeSelection;
+        bool isSelected = handler.activeSelection;
+
+        if (/*this.move == true &&*/ isSelected)
         {
-            transform.position = Vector3.MoveTowards(transform.position, target, speed * Time.deltaTime);
+            //Debug.Log("Starting move coruitine"); 
+            StartCoroutine(Move(this.gameObject.transform, this.gameObject.transform.position, target)); 
         }
-	}
+
+    }
+
+    IEnumerator Move(Transform tf, Vector3 from, Vector3 to)
+    {
+        float step = (speed / (from-to).magnitude) * Time.fixedDeltaTime; 
+        float l = 0;        
+        while (l <= 1.0f)
+        {
+            Debug.Log("Move tick");
+            l += step;
+            tf.position = Vector3.Lerp(from, to, l); //Vector3.MoveTowards(, target, l);
+            
+            yield return new WaitForEndOfFrame();
+        }
+        //transform.position = Vector3.MoveTowards(transform.position, target,);
+    }
 }
+

@@ -4,7 +4,7 @@ using UnityEngine.EventSystems;
 using System;
 using UnityEngine;
 
-public class SelectObject : MonoBehaviour, ISelectHandler, IPointerClickHandler, IDeselectHandler
+public class SelectObject : MonoBehaviour, ISelectHandler, IDeselectHandler, IPointerDownHandler // , IPointerClickHandler
 {
     public static HashSet<SelectObject> allSelectedObjects = new HashSet<SelectObject>();
     public static HashSet<SelectObject> currentlySelected = new HashSet<SelectObject>();
@@ -16,15 +16,26 @@ public class SelectObject : MonoBehaviour, ISelectHandler, IPointerClickHandler,
     [SerializeField]
     Sprite selectedSprite;
 
+    private MeshRenderer renderer; 
+
     void Awake()
     {
+        renderer = GetComponent <MeshRenderer>();
         allSelectedObjects.Add(this);
         sr = GetComponent<SpriteRenderer>();
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    //public void OnPointerClick(PointerEventData eventData)
+    //{
+    //    EventSystem.current.SetSelectedGameObject(gameObject, eventData);
+    //    OnSelect(eventData);
+    //}
+
+    public void OnPointerDown(PointerEventData eventData)
     {
-        OnSelect(eventData);
+        Debug.Log("Test");
+        EventSystem.current.SetSelectedGameObject(gameObject, eventData);
+        //OnSelect(eventData);
     }
 
     public void OnSelect(BaseEventData eventData)
@@ -35,6 +46,7 @@ public class SelectObject : MonoBehaviour, ISelectHandler, IPointerClickHandler,
         }
         currentlySelected.Add(this);
         sr.sprite = selectedSprite;
+        PrintCurrentlySelectedObjects();
     }
 
     public void OnDeselect(BaseEventData eventData)
@@ -50,5 +62,13 @@ public class SelectObject : MonoBehaviour, ISelectHandler, IPointerClickHandler,
             selectable.OnDeselect(eventData);
         }
         currentlySelected.Clear();
+    }
+
+    private void PrintCurrentlySelectedObjects()
+    {
+        foreach (var selection in currentlySelected)
+        {
+            Debug.Log(selection.ToString());
+        }
     }
 }
