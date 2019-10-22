@@ -5886,7 +5886,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2057518874}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e1dbe47f3a7065c4998d9ce291b4b6e8, type: 3}
   m_Name: 
@@ -6054,6 +6054,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 2119462650}
+  - component: {fileID: 2119462651}
   m_Layer: 0
   m_Name: Map
   m_TagString: Untagged
@@ -6175,6 +6176,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2119462651
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2119462649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77cd6d57a63ec934b87746c5d1cfbac5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &2134227364 stripped
 Transform:
   m_PrefabParentObject: {fileID: 4353201459426868, guid: 89495e723c087664eada7f64e1ca7719,

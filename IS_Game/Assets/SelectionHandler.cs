@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -18,9 +19,29 @@ public class SelectionHandler : MonoBehaviour
     private void OnMouseDown()
     { 
         SelectionHandler.ClearActiveSelections();
+        
         this.activeSelection = true; // This will be important to display an interface options pertaining to a specific unit when it's selected 
         ToggleSprite(); 
         PrintSelectedObjects();
+    }
+
+    public static void SelectWithinBounds(Bounds bounds)
+    {
+        GameObject[] gameObjects = GameObject.FindGameObjectsWithTag("PlayerUnit");
+        // Debug.Log("Selected objects: ");
+        foreach (var gameobj in gameObjects)
+        {
+            bool within = bounds.Contains(Camera.main.WorldToViewportPoint(gameobj.transform.position));
+
+            //Debug.Log(within.ToString()); 
+
+            if (within)
+            {
+                SelectionHandler handler = gameobj.GetComponent<SelectionHandler>();
+                handler.selected = true;
+                handler.ToggleSelectSprite(); 
+            }
+        }
     }
 
     private void Selected()
@@ -38,6 +59,17 @@ public class SelectionHandler : MonoBehaviour
             GetComponent<SpriteRenderer>().sprite = normalSprite; 
         }
          
+    }
+
+    private void ToggleSelectSprite()
+    {
+        if (this.selected)
+        {
+            GetComponent<SpriteRenderer>().sprite = selectedSprite;
+        } else
+        {
+            GetComponent<SpriteRenderer>().sprite = normalSprite;
+        }
     }
 
     // DEBUG:
