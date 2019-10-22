@@ -5,6 +5,7 @@ TagManager:
   serializedVersion: 2
   tags:
   - B-Cell
+  - PlayerUnit
   layers:
   - Default
   - TransparentFX
