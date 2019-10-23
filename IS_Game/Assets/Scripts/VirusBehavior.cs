@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TemporaryBehavior : MonoBehaviour
+public class VirusBehavior : MonoBehaviour
 {
     //how fast the virus moves
     public float speed;
@@ -10,13 +10,13 @@ public class TemporaryBehavior : MonoBehaviour
     public Transform target;
 
     //get object to move towards
-	void Start ()
+    void Start()
     {
-        target = GameObject.FindGameObjectWithTag("B-Cell").GetComponent<Transform>();
-	}
+        target = GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>();
+    }
     //Move towards object
-	void Update ()
+    void Update()
     {
         transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
-	}
+    }
 }

@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212192205299992152}
   - component: {fileID: 58032791849292400}
   - component: {fileID: 50927218914155088}
-  - component: {fileID: 114644308643803864}
+  - component: {fileID: 114206523446786186}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Untagged
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.235
---- !u!114 &114644308643803864
+--- !u!114 &114206523446786186
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,10 +86,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1326259072446114}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 89645fab134a1124f9b65b46b6379fb8, type: 3}
+  m_Script: {fileID: 11500000, guid: 8ff57eb93f1319c45b4506812e6746bd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  speed: 14.11
   target: {fileID: 0}
 --- !u!212 &212192205299992152
 SpriteRenderer:

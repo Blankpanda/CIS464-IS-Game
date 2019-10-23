@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class VirusSpawner : MonoBehaviour
 {
-    public GameObject virus;
+    public GameObject Virus;
     public bool stopSpawning = false;
     public float spawnTime;
     public float spawnDelay;
@@ -14,7 +14,7 @@ public class VirusSpawner : MonoBehaviour
     }
     public void SpawnObject ()
     {
-        Instantiate(virus, transform.position, transform.rotation);
+        Instantiate(Virus, transform.position, transform.rotation);
         if(stopSpawning)
         {
             CancelInvoke("SpawnObject");
