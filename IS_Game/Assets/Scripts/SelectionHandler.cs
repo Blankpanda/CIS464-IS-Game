@@ -14,15 +14,23 @@ public class SelectionHandler : MonoBehaviour
 
     [SerializeField]
     Sprite selectedSprite, normalSprite;
-    
+
+    public static List<GameObject> SelectedObjects = new List<GameObject>(); 
 
     private void OnMouseDown()
     { 
         SelectionHandler.ClearActiveSelections();
         
         this.activeSelection = true; // This will be important to display an interface options pertaining to a specific unit when it's selected 
-        ToggleSprite(); 
-        PrintSelectedObjects();
+        ToggleSprite();
+        ShowUnitStats(); 
+        //PrintSelectedObjects();
+    }
+
+    private void ShowUnitStats()
+    {
+        UiManager.SelectedUnit = this.gameObject;
+        UiManager.isUnitDisplay = true; 
     }
 
     public static void SelectWithinBounds(Bounds bounds)
@@ -39,7 +47,8 @@ public class SelectionHandler : MonoBehaviour
             {
                 SelectionHandler handler = gameobj.GetComponent<SelectionHandler>();
                 handler.selected = true;
-                handler.ToggleSelectSprite(); 
+                handler.ToggleSelectSprite();
+                SelectedObjects.Add(gameobj); 
             }
         }
     }
