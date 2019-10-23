@@ -6,6 +6,9 @@ TagManager:
   tags:
   - B-Cell
   - PlayerUnit
+  - Building
+  - Virus
+  - InfectingVirus
   layers:
   - Default
   - TransparentFX

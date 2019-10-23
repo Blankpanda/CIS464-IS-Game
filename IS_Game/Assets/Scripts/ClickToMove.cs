@@ -33,6 +33,7 @@ public class ClickToMove : MonoBehaviour
             if (hit.collider == null || hit.collider.tag != "PlayerUnit")
             {
                 SelectionHandler.ClearActiveSelections();
+                SelectionHandler.ClearSelections();
             }
         }
     }
@@ -40,8 +41,8 @@ public class ClickToMove : MonoBehaviour
     void MoveObject()
     {
         SelectionHandler handler = (SelectionHandler)this.gameObject.GetComponent("SelectionHandler");
-        //bool isSelected = handler.selected || handler.activeSelection;
-        bool isSelected = handler.activeSelection;
+        bool isSelected = handler.selected || handler.activeSelection;
+        //bool isSelected = handler.activeSelection;
 
         if (/*this.move == true &&*/ isSelected)
         {

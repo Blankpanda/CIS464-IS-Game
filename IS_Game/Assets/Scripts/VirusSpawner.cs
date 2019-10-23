@@ -4,20 +4,46 @@ using UnityEngine;
 
 public class VirusSpawner : MonoBehaviour
 {
-    public GameObject virus;
+    public GameObject Virus;
+    public GameObject InfectingVirus;
     public bool stopSpawning = false;
-    public float spawnTime;
+
     public float spawnDelay;
+    public float spawnMultiplier = 1;
+    public int infectionSpawnDelay = 10;
+    float currentTime;
+    int spawnedCount = 0;
     void Start()
     {
-        InvokeRepeating("SpawnObject", spawnTime, spawnDelay);
+        currentTime = spawnDelay;
     }
-    public void SpawnObject ()
+
+    void Update()
     {
-        Instantiate(virus, transform.position, transform.rotation);
-        if(stopSpawning)
+        if(stopSpawning == false)
         {
-            CancelInvoke("SpawnObject");
+            currentTime -= Time.deltaTime;
+            if (currentTime <= 0) //reached the end of the timer
+            {
+                //spawn in virus
+                spawnVirus();
+                currentTime = spawnDelay;
+                spawnedCount++;
+                if (spawnedCount % infectionSpawnDelay == 0) //every 10 spawned viruses, spawn an infection 1
+                {
+                    spawnInfectionVirus();
+                }
+            }
+            
         }
-	}
+    }
+
+    void spawnVirus()
+    {
+        Instantiate(Virus, transform.position, transform.rotation);
+    }
+    void spawnInfectionVirus()
+    {
+        Instantiate(InfectingVirus, transform.position, transform.rotation);
+    }
 }
