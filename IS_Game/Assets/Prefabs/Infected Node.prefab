@@ -58,7 +58,7 @@ MonoBehaviour:
   stopSpawning: 0
   spawnDelay: 1
   spawnMultiplier: 1
-  infectionSpawnDelay: 1
+  infectionSpawnDelay: 4
 --- !u!212 &212075307200460258
 SpriteRenderer:
   m_ObjectHideFlags: 1
