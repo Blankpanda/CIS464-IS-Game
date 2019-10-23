@@ -11,6 +11,7 @@ public class MacrophageHealth : MonoBehaviour
     {
         if(health == 0)
         {
+            VirusBehavior.targetList.Remove(this.transform);
             Destroy(gameObject);
         }
         if(collision.gameObject.tag == "Virus")
@@ -18,6 +19,5 @@ public class MacrophageHealth : MonoBehaviour
             Destroy(collision.gameObject);
             health -= 1;
         }
-        Debug.Log("WeCollided");
     }
 }

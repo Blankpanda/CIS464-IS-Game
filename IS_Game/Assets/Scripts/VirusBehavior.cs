@@ -6,17 +6,44 @@ public class VirusBehavior : MonoBehaviour
 {
     //how fast the virus moves
     public float speed;
-    //where it moves towards
-    public Transform target;
+    public static List<Transform> targetList = new List<Transform>();
+    public Transform currentTarget;
+    float distance = 0;
 
-    //get object to move towards
     void Start()
     {
-        target = GameObject.FindGameObjectWithTag("Building").GetComponent<Transform>();
+
     }
-    //Move towards object
+
     void Update()
     {
-        transform.position = Vector2.MoveTowards(transform.position, target.position, speed * Time.deltaTime);
+        assignCurrentTarget();
+        moveToCurrentTarget();
+    }
+    void assignCurrentTarget()
+    {
+        foreach (Transform possibleTarget in targetList)
+        {
+            if (currentTarget != null)
+            {
+                if (Vector2.Distance(possibleTarget.localPosition, this.transform.localPosition) <= distance)
+                {
+                    distance = Vector2.Distance(possibleTarget.localPosition, this.transform.localPosition);
+                    currentTarget = possibleTarget;
+                }
+            }
+            else
+            {
+                currentTarget = possibleTarget;
+                distance = Vector2.Distance(currentTarget.localPosition, this.transform.localPosition);
+            }
+        }
+    }
+    void moveToCurrentTarget()
+    {
+        if(currentTarget != null)
+        {
+            this.transform.position = Vector2.MoveTowards(this.transform.position, currentTarget.transform.position, speed*Time.deltaTime);
+        }
     }
 }
