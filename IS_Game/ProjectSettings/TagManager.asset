@@ -8,6 +8,7 @@ TagManager:
   - PlayerUnit
   - Building
   - Virus
+  - InfectingVirus
   layers:
   - Default
   - TransparentFX

@@ -14,7 +14,7 @@ public class MacrophageHealth : MonoBehaviour
             VirusBehavior.targetList.Remove(this.transform);
             Destroy(gameObject);
         }
-        if(collision.gameObject.tag == "Virus")
+        if (collision.gameObject.tag == "Virus" || collision.gameObject.tag == "InfectingVirus")
         {
             Destroy(collision.gameObject);
             health -= 1;

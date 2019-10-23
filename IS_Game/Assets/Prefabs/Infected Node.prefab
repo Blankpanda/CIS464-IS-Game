@@ -36,7 +36,7 @@ Transform:
   m_GameObject: {fileID: 1412748356479478}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -84.29, y: -35.74, z: 0}
-  m_LocalScale: {x: 10, y: 10, z: 1}
+  m_LocalScale: {x: 30, y: 30, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -53,9 +53,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Virus: {fileID: 1326259072446114, guid: 3b971f72fc03fe347ba3d6ce4d8185d5, type: 2}
+  InfectingVirus: {fileID: 1337527181920150, guid: 767859e611a3bc04396512ab24694ade,
+    type: 2}
   stopSpawning: 0
-  spawnTime: 1
-  spawnDelay: 0.13
+  spawnDelay: 1
+  spawnMultiplier: 1
+  infectionSpawnDelay: 1
 --- !u!212 &212075307200460258
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -88,8 +91,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2c09b18afeb9f254a89229535ef0e24f, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: 21300000, guid: b46c674ee0a2fe347bc7ffd784097010, type: 3}
+  m_Color: {r: 0, g: 0.403, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
