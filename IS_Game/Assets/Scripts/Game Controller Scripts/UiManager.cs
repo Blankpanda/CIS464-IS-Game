@@ -26,7 +26,7 @@ public class UiManager : MonoBehaviour {
         {
             Debug.Log(isUnitDisplay);
             Debug.Log(SelectedUnit.name.ToString());
-            var selectedUnitHealthComponent = SelectedUnit.GetComponent<MacrophageHealth>();
+            var selectedUnitHealthComponent = SelectedUnit.GetComponent<CellHealth>();
             var selectedUnitTextureComponent = SelectedUnit.GetComponent<SpriteRenderer>();
 
 

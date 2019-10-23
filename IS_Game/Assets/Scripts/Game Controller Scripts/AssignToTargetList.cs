@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AssignBuildingToTargetList : MonoBehaviour
+public class AssignToTargetList : MonoBehaviour
 {
     
 	void Start ()

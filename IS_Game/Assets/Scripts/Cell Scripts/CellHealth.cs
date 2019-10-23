@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class MacrophageHealth : MonoBehaviour
+public class CellHealth : MonoBehaviour
 {
     public GameObject enemy;
     public int health = 100;
