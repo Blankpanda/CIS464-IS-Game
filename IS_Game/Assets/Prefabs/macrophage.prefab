@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 50614958460889014}
   - component: {fileID: 114726717883492354}
   - component: {fileID: 114298506871805562}
+  - component: {fileID: 114913327391514828}
   m_Layer: 0
   m_Name: macrophage
   m_TagString: PlayerUnit
@@ -106,6 +107,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 6.85
+--- !u!114 &114913327391514828
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1722917543812990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0870497d9c65fe441a77872fdcef84d8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  enemy: {fileID: 1326259072446114, guid: 3b971f72fc03fe347ba3d6ce4d8185d5, type: 2}
+  health: 100
 --- !u!212 &212573827448036196
 SpriteRenderer:
   m_ObjectHideFlags: 1

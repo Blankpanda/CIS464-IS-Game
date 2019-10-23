@@ -55,7 +55,7 @@ MonoBehaviour:
   Virus: {fileID: 1326259072446114, guid: 3b971f72fc03fe347ba3d6ce4d8185d5, type: 2}
   stopSpawning: 0
   spawnTime: 1
-  spawnDelay: 0.2
+  spawnDelay: 0.13
 --- !u!212 &212075307200460258
 SpriteRenderer:
   m_ObjectHideFlags: 1
