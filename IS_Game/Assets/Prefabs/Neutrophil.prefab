@@ -94,7 +94,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   selected: 0
   activeSelection: 0
-  selectedSprite: {fileID: 21300000, guid: e26aa147072f7514289a2c8540da51c1, type: 3}
+  selectedSprite: {fileID: 21300000, guid: 9d3d2d52587135444b85362c1af36aad, type: 3}
   normalSprite: {fileID: 21300000, guid: e26aa147072f7514289a2c8540da51c1, type: 3}
 --- !u!114 &114369467992877368
 MonoBehaviour:
@@ -107,7 +107,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2e87492852e54924694f67ebd1a67c11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 1
+  speed: 5
 --- !u!114 &114397664280858204
 MonoBehaviour:
   m_ObjectHideFlags: 1
