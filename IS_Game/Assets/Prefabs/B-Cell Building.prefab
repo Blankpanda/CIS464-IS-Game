@@ -93,7 +93,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3d4efe63eaae02549b034e1746855e4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spawnable: {fileID: 1722917543812990, guid: 61c36163a2b42014bb65aeca8a58181c, type: 2}
+  spawnable: {fileID: 1549573000828968, guid: e8b22796438c23444a8a0e6ee3f96af7, type: 2}
+  offset: 3
   buildingName: B-Cell
 --- !u!212 &212084073126548566
 SpriteRenderer:
