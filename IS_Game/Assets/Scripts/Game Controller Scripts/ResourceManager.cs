@@ -2,15 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ResourceManager : MonoBehaviour {
-
-	// Use this for initialization
-	void Start () {
-		
-	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+public class ResourceManager : MonoBehaviour
+{
+    public void gameOver()
+    {
+        Debug.Log("GameOver");
+    }
 }

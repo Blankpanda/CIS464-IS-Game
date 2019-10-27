@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 114151929760165758}
   - component: {fileID: 58220492829923890}
   - component: {fileID: 114610339181953440}
+  - component: {fileID: 114903264882956062}
   m_Layer: 0
   m_Name: Research Building
   m_TagString: Building
@@ -96,6 +97,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   selected: 0
+--- !u!114 &114903264882956062
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1683760723269352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc129d6e42de10c49b9f46a47f964918, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  health: 100
 --- !u!212 &212732950867368314
 SpriteRenderer:
   m_ObjectHideFlags: 1

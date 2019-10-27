@@ -94,9 +94,9 @@ MonoBehaviour:
   InfectingVirus: {fileID: 1337527181920150, guid: 767859e611a3bc04396512ab24694ade,
     type: 2}
   stopSpawning: 0
-  spawnDelay: 0.04
+  spawnDelay: 1
   spawnMultiplier: 1
-  infectionSpawnDelay: 100
+  infectionSpawnDelay: 10
 --- !u!114 &114720978362029726
 MonoBehaviour:
   m_ObjectHideFlags: 1
