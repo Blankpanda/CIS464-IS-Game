@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58271973061674472}
   - component: {fileID: 114367447368884058}
   - component: {fileID: 114965012698802538}
+  - component: {fileID: 114074917755869810}
   m_Layer: 0
   m_Name: SoldierBuilding
   m_TagString: Building
@@ -59,6 +60,18 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 2.11
+--- !u!114 &114074917755869810
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1507314374871022}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f7ee6ea3b72ccb645b7c7be535566329, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  selected: 0
 --- !u!114 &114352525833913132
 MonoBehaviour:
   m_ObjectHideFlags: 1

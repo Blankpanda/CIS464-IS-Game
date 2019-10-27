@@ -11,7 +11,7 @@ public class CellHealth : MonoBehaviour
 
     //state for healing
     public bool healing = false;
-    float healingRate = 1;
+    public float healingRate = 1;
 
     //set the current health to the maximum health at start
     private void Start()
@@ -22,7 +22,7 @@ public class CellHealth : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         //if health is at 0, destroy the game object
-        if(currentHealth == 0)
+        if(currentHealth <= 0)
         {
             VirusBehavior.targetList.Remove(this.transform);
             Destroy(gameObject);
@@ -37,6 +37,13 @@ public class CellHealth : MonoBehaviour
         if(collision.gameObject.GetComponent<HealingCell>() != null)
         {
             healing = true;
+        }
+    }
+    private void OnCollisionExit2D(Collision2D collision)
+    {
+        if (collision.gameObject.GetComponent<HealingCell>() != null)
+        {
+            healing = false;
         }
     }
 
