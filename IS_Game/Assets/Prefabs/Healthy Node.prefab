@@ -110,6 +110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   health: 3
   infectedColor: {r: 0, g: 0.40392157, b: 0, a: 1}
+  healthyColor: {r: 0.98823535, g: 0.78823537, b: 0.6862745, a: 0}
 --- !u!212 &212046129003215904
 SpriteRenderer:
   m_ObjectHideFlags: 1
