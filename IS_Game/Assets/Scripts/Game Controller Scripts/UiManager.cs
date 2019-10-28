@@ -22,14 +22,21 @@ public class UiManager : MonoBehaviour {
 
     private void OnGUI()
     {
+        ResourceManager resourceObj = gameObject.GetComponent<ResourceManager>();
+        int marrowCount = resourceObj.totalMarrow; 
+        GUI.Box(new Rect(0, 0, 100, 50), "Marrow");
+        GUI.Label(new Rect(20, 20, 100, 50), marrowCount.ToString());
+
+
         if (isUnitDisplay)
         {
-            Debug.Log(isUnitDisplay);
-            Debug.Log(SelectedUnit.name.ToString());
+            //Debug.Log(isUnitDisplay);
+            //Debug.Log(SelectedUnit.name.ToString());
             var selectedUnitHealthComponent = SelectedUnit.GetComponent<CellHealth>();
             var selectedUnitTextureComponent = SelectedUnit.GetComponent<SpriteRenderer>();
+            
 
-
+ 
             GUI.Box(new Rect(Screen.width - 110, Screen.height - 140, 140, 200), "");
             GUI.Label(new Rect(Screen.width - 100, Screen.height - 130, 100, 50), SelectedUnit.name.ToString());
             GUI.DrawTexture(new Rect(Screen.width - 90, Screen.height - 95, 65, 65), selectedUnitTextureComponent.sprite.texture); 

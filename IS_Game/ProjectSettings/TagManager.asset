@@ -9,6 +9,7 @@ TagManager:
   - Building
   - Virus
   - InfectingVirus
+  - Map
   layers:
   - Default
   - TransparentFX
