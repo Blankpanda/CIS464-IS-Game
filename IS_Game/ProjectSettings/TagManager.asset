@@ -10,6 +10,7 @@ TagManager:
   - Virus
   - InfectingVirus
   - Map
+  - GameButton
   layers:
   - Default
   - TransparentFX

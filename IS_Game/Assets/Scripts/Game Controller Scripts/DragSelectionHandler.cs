@@ -68,7 +68,7 @@ public class DragSelectionHandler : MonoBehaviour {
         Bounds bounds = new Bounds();
         bounds.SetMinMax(min, max);
 
-        Debug.Log(bounds.ToString());
+        //Debug.Log(bounds.ToString());
 
         return bounds; 
     }

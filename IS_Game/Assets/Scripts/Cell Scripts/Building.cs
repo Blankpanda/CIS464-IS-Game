@@ -12,16 +12,15 @@ public class Building : MonoBehaviour
 
     public void spawnUnit()
     {
-        GameObject newUnit = Instantiate(spawnable);
-
-        string unitName = newUnit.name;
-        int cost = ResourceManager.MatchNameToPrice(unitName);
+        int cost = ResourceManager.MatchNameToPrice(buildingName);
 
         var mapObj = GameObject.FindGameObjectWithTag("Map");
         var resourceManager = mapObj.GetComponent<ResourceManager>();
 
         if (resourceManager.totalMarrow >= cost)
         {
+            GameObject newUnit = Instantiate(spawnable);
+            string unitName = newUnit.name;
             resourceManager.totalMarrow -= cost;
             newUnit.transform.position = new Vector3(transform.position.x, transform.position.y - offset, transform.position.z);
         } 

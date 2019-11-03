@@ -12,7 +12,8 @@ public class BuildingSelect : MonoBehaviour
     void OnMouseDown()
     {
         selected = true;
-        BuildingManger.currentBuilding = GetComponent<Building>();
-        BuildingManger.buildingName = GetComponent<Building>().buildingName;
+        BuildingManager.currentBuilding = GetComponent<Building>();
+        BuildingManager.buildingName = GetComponent<Building>().buildingName;
     }
+
 }

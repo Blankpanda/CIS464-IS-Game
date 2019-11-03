@@ -22,24 +22,28 @@ public class ClickToMove : MonoBehaviour
         {
             target = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             target.z = this.gameObject.transform.position.z;
-            MoveObject(); 
+            MoveObject();
         }
         else if (Input.GetMouseButtonDown(0)) // Left click, determine if its a selection or deselection 
-        { 
+        {
             Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             Vector2 mousePos2d = new Vector2(mousePos.x, mousePos.y);
 
             RaycastHit2D hit = Physics2D.Raycast(mousePos2d, Vector2.zero);
 
-            if (hit.collider == null || hit.collider.tag != "PlayerUnit")
-            { 
+
+            if (hit.collider == null || !(hit.collider.tag == "PlayerUnit" || hit.collider.tag == "Building" || hit.collider.tag == "GameButton"))
+            {
+
+                //Debug.Log(hit.collider.ToString());
                 SelectionHandler.ClearActiveSelections();
                 SelectionHandler.ClearSelections();
                 SelectionHandler.SelectedObjects.Clear();
                 
                 UiManager.isBuildingDisplay = false;
-                UiManager.isUnitDisplay = false; 
+                UiManager.isUnitDisplay = false;
 
+                //BuildingManager.DeselectCurrentBuilding();
             }
         }
     }
