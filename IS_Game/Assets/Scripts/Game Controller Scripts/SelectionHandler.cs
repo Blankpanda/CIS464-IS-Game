@@ -24,7 +24,7 @@ public class SelectionHandler : MonoBehaviour
         this.activeSelection = true; // This will be important to display an interface options pertaining to a specific unit when it's selected 
         ToggleSprite();
         ShowUnitStats(); 
-        //PrintSelectedObjects();
+        PrintSelectedObjects();
     }
 
     private void ShowUnitStats()

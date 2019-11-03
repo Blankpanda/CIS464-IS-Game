@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class ResourceManager : MonoBehaviour
 {
-    public int totalMarrow = 100;
-    public int marrowPerTick = 100;
+    public int totalMarrow = 1000;
+    public int marrowPerTick = 20;
     public float time = 0.0f;
-    public float marrowRate = 0.9f;
+    public float marrowRate = 5.0f;
+    public static bool debugMode = false;
 
 
     public enum UnitPrices
@@ -28,7 +29,7 @@ public class ResourceManager : MonoBehaviour
         {
             return (int)UnitPrices.MACROPHAGE;
         }
-        else if (unitName.Contains("T-CELL"))
+        else if (unitName.Contains("T-CELLS"))
         {
             return (int)UnitPrices.T_CELL;
         }
@@ -36,7 +37,7 @@ public class ResourceManager : MonoBehaviour
         {
             return (int)UnitPrices.B_CELL;
         }
-        else if (unitName.Contains("DENDRITIC"))
+        else if (unitName.Contains("DENDRITIC CELL"))
         {
             return (int)UnitPrices.DENDRITIC;
         }
@@ -45,7 +46,7 @@ public class ResourceManager : MonoBehaviour
             return (int)UnitPrices.NEUTROPHIL;
         } else
         {
-            return 0; 
+            return 1000; 
         }
     }
 
@@ -57,12 +58,33 @@ public class ResourceManager : MonoBehaviour
 
     public void Start()
     {
+        totalMarrow = 1000; 
         InvokeRepeating("MarrowTick", 1.0f, 5.0f); 
     }
 
     void MarrowTick()
     {
-        totalMarrow += marrowPerTick; 
+        // Get a count of bcells 
+        var units = GameObject.FindGameObjectsWithTag("PlayerUnit");
+        int dCellCount = 1;
+        foreach (var cell in units)
+        {
+            if (cell.name.ToUpper().Contains("DENDRITIC"))
+            {
+               dCellCount += 1; 
+            }
+        }
+
+        Debug.Log(dCellCount.ToString());
+  
+        if (debugMode)
+        {
+            totalMarrow = 9999999; 
+        } else
+        {
+            totalMarrow += (marrowPerTick * dCellCount);
+        }
+
     }
 
     public void gameOver()
