@@ -35,18 +35,15 @@ public class AddToHealthyNodeList : MonoBehaviour
                 health--;
             }
         }
+        //if hit by a player, and is infected, destory the building
         if(collision.transform.tag == "PlayerUnit" && isInfected)
         {
+            InfectingVirusBehavior.targetList.Remove(this.transform);
+            VirusBehavior.targetList.Remove(this.transform);
+            InfectingVirusBehavior.targetList.Remove(collision.transform);
+            VirusBehavior.targetList.Remove(collision.transform);
             Destroy(collision.gameObject);
-            InfectingVirusBehavior.targetList.Add(this.transform);
-            GetComponent<SpriteRenderer>().color = healthyColor;
-            GetComponent<VirusSpawner>().enabled = false;
-            GetComponent<AddToHealthyNodeList>().enabled = true;
+            Destroy(gameObject);
         }
-    }
-
-    //become infected or healthy
-    void Update()
-    {
     }
 }

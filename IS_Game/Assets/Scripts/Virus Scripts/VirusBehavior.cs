@@ -6,14 +6,10 @@ public class VirusBehavior : MonoBehaviour
 {
     //how fast the virus moves
     public float speed;
+    //list of targets to attack
     public static List<Transform> targetList = new List<Transform>();
     public Transform currentTarget;
     float distance = 0;
-
-    void Start()
-    {
-
-    }
 
     void Update()
     {
@@ -24,6 +20,7 @@ public class VirusBehavior : MonoBehaviour
     {
         foreach (Transform possibleTarget in targetList)
         {
+            //find the closest target
             if (currentTarget != null)
             {
                 if (Vector2.Distance(possibleTarget.localPosition, this.transform.localPosition) <= distance)
@@ -39,6 +36,7 @@ public class VirusBehavior : MonoBehaviour
             }
         }
     }
+    //attack the target
     void moveToCurrentTarget()
     {
         if(currentTarget != null)
